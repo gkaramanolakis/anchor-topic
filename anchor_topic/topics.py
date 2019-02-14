@@ -76,7 +76,8 @@ def model_topics(M, k, threshold, seed=1):
 
     # identify candidates
     candidates = identify_candidates(M, doc_threshold)
-
+    assert len(candidates) > 0, "Found 0 candidates. Decrease k and rerun."
+    
     # find anchors
     anchors = search.greedy_anchors(Q, k, candidates, seed)
 
